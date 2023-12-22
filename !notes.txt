@@ -1,0 +1,27 @@
+Template Model MVC avec ReactJS et NodeJS
+====================
+
+Organisation des dossiers et fichiers
+-------------------------------------
+
+/api							Code source de l'application
+/client
+.gitignore
+README.md
+
+
+Liens intéressants
+------------------
+- myuser connect
+  http://localhost:8080/realms/myrealm/account/#/
+
+- tuto1
+  https://www.youtube.com/watch?v=yUrfBrSkWLg&ab_channel=hexaDefence
+
+
+
+
+
+
+Install des dépendances
+-----------------------

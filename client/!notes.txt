@@ -1,0 +1,58 @@
+Projet GrowKom
+====================
+
+
+Template NodeJS - ReactJS - MySQL
+-------------------------------------
+
+/client							        Code source de l'application
+  /public                   Dossiers des fichiers accès public
+	/src								      Code source principal de l'application
+    /assets						      Dossier des fichiers statics
+    /components					    Composants prêts à l'emploi
+    /container					    Contenu qui incluant les composants
+    /redux							    Le V de MVC, éléments liés à Redux dans l'application
+    	/actions					    Actions redux, utilisées pour communiquer avec les réducteurs.
+    	/reducers					    Réducteurs Redux, récupère l'état actuel et une action, puis retourne un nouvel état.
+      constants.jsx		      Constantes utilisées dans le contexte de Redux, comme les types d'action
+      store.jsx				      Configure et crée le store Redux pour l'application
+    /utils                  Fonctions utilitaires utilisées partout dans l'application
+    App.jsx                 ...
+    index.jsx               ...
+  index.html								...
+
+
+
+
+
+Liens intéressants
+------------------
+
+- React Router Dom :
+  https://fr.legacy.reactjs.org/docs/code-splitting.html#route-based-code-splitting
+
+- Install Tailwind CSS with Create React App :
+  https://tailwindcss.com/docs/guides/create-react-app
+
+- Json post API :
+  https://jsonplaceholder.typicode.com/
+
+- Mise en place de Auth0 dans reactjs
+  https://www.youtube.com/watch?v=pAzqscDx580&ab_channel=DaveGray
+
+- What is the Audience? -- Auth0 Community Response Series
+  https://www.youtube.com/watch?v=o_MuvVF9pY4&ab_channel=OktaDev
+  https://community.auth0.com/t/what-is-the-audience/71414
+
+- Résolution access token is not a JWT
+  https://community.auth0.com/t/access-token-is-not-jwt-format/61945
+  https://auth0.com/docs/get-started/tenant-settings#api-authorization-settings
+
+
+
+Install des dépendances
+-----------------------
+
+- tailwindcss
+  1 - npm install tailwindcss postcss autoprefixer -D
+  2 - npx tailwindcss init -p

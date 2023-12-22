@@ -1,0 +1,90 @@
+Template API REST avec NodeJS et MySQL
+====================
+
+Organisation des dossiers et fichiers
+-------------------------------------
+
+/api							Code source de l'application
+	/node_modules		Dépendances du Projet : Ce dossier inclut toutes les bibliothèques et modules tiers que le projet utilise. Ces dépendances sont
+                  définies dans le fichier "package.json" sous la section "dependencies" et "devDependencies".
+  /src						Code source principal de l'application
+    /auth								Dossier contenant les fichiers liés à l'authentification
+    /controllers				Le C de MVC, le coeur de l'application
+    /database						Configuration de la base de données
+    /middlewares				Polices de caractères
+    /models							Le M de MVC, le coeur de l'application
+    /public							Dossier contenant les données static du projet
+    /routes							Configuration des routes pour chaque api
+.env								    Fichier contenant tous les variables environnantes
+package-lock.json				automatiquement généré
+package.json						automatiquement généré pour tout projet ayant des modules npm et il ne doit pas être modifié manuellement
+server.js								Point d'entrée principal de l'application
+
+
+Liens intéressants
+------------------
+
+- Learn NodeJS :
+  https://nodejs.org/en/learn/getting-started/introduction-to-nodejs
+
+- Add Authentication to Existing Node.js/Express Apps with Auth0 | Express and Auth
+  https://www.youtube.com/watch?v=HTjfDUm1RsU&t=524s&ab_channel=OktaDev
+
+
+    Utilisateur                   Frontend ReactJS                Auth0                     Backend API Node.js
+      │                                 │                            │                              │
+      │                                 │                            │                              │
+      ├─┐Se connecter                   │                            │                              │
+      │ ├──────────────────────────────►│                            │                              │
+      │ │                               ├─┐Demander authentification │                              │
+      │ │                               │ ├─────────────────────────►│                              │
+      │ │                               │ │                          ├─┐Authentifier l'utilisateur │
+      │ │                               │ │                          │ ├───────────────────────────►│
+      │ │                               │ │                          │ │                            │
+      │ │                               │ │                          │ │                            │
+      │ │                               │ │                          ◄├───Retourner le jeton JWT────┤
+      │ │                               │ │                          │ │                            │
+      │ ◄───────────────────────────────├─┘                          │ │                            │
+      │ │Recevoir le jeton JWT           │                            │ │                            │
+      │ ├──────────────────────────────►│                            │ │                            │
+      │ │                               ├─┐Envoyer le jeton JWT avec │ │                            │
+      │ │                               │ ├─la requête à l'API───────►│ │                            │
+      │ │                               │ │                          │ │                            ├─┐Vérifier le jeton JWT
+      │ │                               │ │                          │ │                            │ ├────────────────────►
+      │ │                               │ │                          │ │                            │ │
+      │ │                               │ │                          │ │                            ◄├──Réponse sécurisée───
+      │ ◄───────────────────────────────├─┘                          │ │                            │ │
+      │ │Recevoir la réponse de l'API    │                            │ │                            │ │
+      │                                 │                            │ │                            │ │
+
+
+
+
+SSO
+-------
+
+    Utilisateur 1                   Frontend ReactJS                Auth0                     Backend API Node.js
+      │                                 │                            │                              │
+      │       Se connecter              │                            │                              │
+      ├───────────────────────────────► │                            │                              │
+      │                                 ├───────Demander authentification ──────────────────────► │
+      │                                 │                            │                              │
+      │                                 │                            ├────Authentifier l'utilisateur │
+      │                                 │                            │ ◄──────────────────────────── │
+      │                                 │ ◄─────Recevoir le jeton JWT───────────────────────────── │
+      │                                 ├─────Envoyer le jeton JWT avec la requête à l'API───────► │
+      │                                 │                            │                              │
+      │                                 │                            │                              │
+      │                                 │                            │                              │
+      │                                 │                            │                              │
+      │                                 │                            │                              │
+    Utilisateur 2                       │                            │                              │
+      │       Se connecter              │                            │                              │
+      ├───────────────────────────────► │                            │                              │
+      │                                 ├───────Demander authentification ──────────────────────► │
+      │                                 │                            │                              │
+      │                                 │                            ├────Vérifier session SSO─────► │
+      │                                 │                            │ ◄──────────────────────────── │
+      │                                 │ ◄─────Recevoir le jeton JWT (si déjà connecté) ─────────── │
+      │                                 ├─────Envoyer le jeton JWT avec la requête à l'API───────► │
+      │                                 │                            │                              │
