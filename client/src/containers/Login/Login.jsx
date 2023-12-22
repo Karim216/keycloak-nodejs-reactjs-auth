@@ -3,7 +3,6 @@ import Button from "../../components/Button/Button";
 import LoginIcon from "../../assets/icons/login";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,8 +12,6 @@ const Login = () => {
     password: "",
     passwordErr: "",
   });
-
-  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
   const inputChange = (value, name, errField) => {
     setState((prevState) => ({
@@ -125,16 +122,14 @@ const Login = () => {
               <div className="text-red-500">{state.passwordErr}</div>
             </div>
           </div>
-          {!isAuthenticated && (
-            <Button
-              label="Sign in"
-              btnType="button"
-              handleSubmit={() => loginWithRedirect()}
-              cssCustom={"mt-10"}
-              icon={<LoginIcon color={"#FFFFFF"} />}
-              iconLoading={<btnLoading />}
-            />
-          )}
+          <Button
+            label="Sign in"
+            btnType="button"
+            handleSubmit={() => handleSubmit()}
+            cssCustom={"mt-10"}
+            icon={<LoginIcon color={"#FFFFFF"} />}
+            iconLoading={<btnLoading />}
+          />
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
             <a

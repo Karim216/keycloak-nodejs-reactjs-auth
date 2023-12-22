@@ -1,16 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
-const { auth } = require('express-oauth2-jwt-bearer');
 const cors = require("cors");
 require("dotenv").config();
-
-// middlewares
-const jwtCheck = auth({
-  audience: 'https://node-api/',
-  issuerBaseURL: 'https://dev-e6s0ch7ttbtt1yrl.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -31,7 +23,6 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(jwtCheck);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to my API." });
 });
