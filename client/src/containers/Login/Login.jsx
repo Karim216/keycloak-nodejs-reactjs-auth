@@ -4,7 +4,7 @@ import LoginIcon from "../../assets/icons/login";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({login}) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
@@ -125,7 +125,7 @@ const Login = () => {
           <Button
             label="Sign in"
             btnType="button"
-            handleSubmit={() => handleSubmit()}
+            handleSubmit={() => login()}
             cssCustom={"mt-10"}
             icon={<LoginIcon color={"#FFFFFF"} />}
             iconLoading={<btnLoading />}

@@ -37,16 +37,11 @@ Liens intéressants
 - Json post API :
   https://jsonplaceholder.typicode.com/
 
-- Mise en place de Auth0 dans reactjs
-  https://www.youtube.com/watch?v=pAzqscDx580&ab_channel=DaveGray
+- myuser connect
+  http://localhost:8080/realms/myrealm/account/#/
 
-- What is the Audience? -- Auth0 Community Response Series
-  https://www.youtube.com/watch?v=o_MuvVF9pY4&ab_channel=OktaDev
-  https://community.auth0.com/t/what-is-the-audience/71414
-
-- Résolution access token is not a JWT
-  https://community.auth0.com/t/access-token-is-not-jwt-format/61945
-  https://auth0.com/docs/get-started/tenant-settings#api-authorization-settings
+- tuto1
+  https://www.youtube.com/watch?v=yUrfBrSkWLg&ab_channel=hexaDefence
 
 
 
