@@ -1,6 +1,3 @@
-[[theme-for-raincatcher-for-keycloak]]
-= Theme for Raincatcher for Keycloak
-
 image:https://cdn-images-1.medium.com/max/800/0*lMzC1bK4bQulI6GB.[raincatcher
 theme]
 
