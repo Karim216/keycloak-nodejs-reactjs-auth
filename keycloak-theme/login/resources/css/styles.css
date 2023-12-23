@@ -1,0 +1,208 @@
+/* @import url('../../keycloak/lib/zocial/zocial.css');*/
+
+body {
+    background-color: #fff;
+    color: #111827;
+    font-family: sans-serif;
+    margin: 0px;
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body > div {
+    width: 40%;
+    padding: 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+}
+
+/* a {
+    color: #fff;
+} */
+
+/* Change content to change the title of the page*/
+div#kc-header::after {
+    padding-top: 3px;
+    content: url('../img/logo.svg');
+    line-height: 50px;
+    margin-bottom: 2.5rem;
+    display: block;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+/* div#kc-info {
+} */
+
+/*title banner size and colour*/
+/* div#kc-header {
+    
+}
+
+div#kc-content {
+
+}*/
+
+form#kc-form-login label ~ div {
+    position: relative;
+}
+
+form#kc-form-login button.pf-c-button{
+    position: absolute;
+    right: 0;
+    top: 23px;
+}
+
+/* label change Username, Password text*/
+form#kc-form-login label {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+/**/
+/* div#kc-form-login {
+    text-align: center;
+} */
+
+div#info-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-top: 45px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    width: 99%;
+}
+
+div#info-area p {
+    margin-right: 30px;
+    display: inline;
+    text-shadow: none;
+    font-size: 20px;
+}
+/*fields*/
+input[type=text], input[type=password] {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #111827;
+    width: 100%;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+    border: 1px solid #111827;
+}
+
+/*button*/
+input[type=submit] {
+    border: none;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: rgba(0,0,0,0.6);
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    padding: 15px;
+    margin-top: 2.5rem;
+    width: 100%;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+input[type=submit]:hover {
+    background-color: #1e3a8a;
+}
+
+div#kc-form-options div {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+div#kc-form-options div label {
+    font-size: 20px;
+}
+
+div#kc-feedback {
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+div#kc-feedback-wrapper {
+    padding: 1em;
+}
+
+div.feedback-success {
+    background-color: rgba(155,155,255,0.1);
+}
+
+div.feedback-warning {
+    background-color: rgba(255,175,0,0.1);
+}
+
+div.feedback-error {
+    background-color: rgba(255,0,0,0.1);
+}
+
+div#kc-header-wrapper {
+    display: none;
+}
+
+div#kc-registration {
+    font-size: 1.3rem;
+    margin-top: 2.5em;
+}
+
+div#social-login {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    float: right;
+    width: 150px;
+    padding: 20px 0 200px 40px;
+}
+
+div.social-login span {
+    display: none;
+}
+
+div#kc-social-providers ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div#kc-social-providers ul li {
+    margin-bottom: 20px;
+}
+
+div#kc-social-providers ul li span {
+    display: inline;
+    width: 100px;
+}
+
+a.zocial {
+    border: none;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0.1)) !important;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0.1)) !important;
+    background: -ms-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0.1)) !important;
+    background: -o-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0.1)) !important;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.6);
+    width: 130px;
+    text-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
