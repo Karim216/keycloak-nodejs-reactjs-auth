@@ -40,9 +40,11 @@ Liens intéressants
 - myuser connect
   http://localhost:8080/realms/myrealm/account/#/
 
-- tuto1
+- tuto1riel
   https://www.youtube.com/watch?v=yUrfBrSkWLg&ab_channel=hexaDefence
 
+- Change Login Theme in Keycloak Docker Image
+  https://medium.com/keycloak/change-login-theme-in-keycloak-docker-image-55b5fa5ceec4
 
 
 Install des dépendances

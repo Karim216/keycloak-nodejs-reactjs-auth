@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import LoginIcon from "../../assets/icons/login";
 import { useNavigate } from "react-router-dom";
+import { useKeycloak } from "@react-keycloak/web";
+// import keycloak from "../../keycloak.jsx"
 import axios from "axios";
 
-const Login = ({login}) => {
+const Login = () => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
@@ -38,25 +40,10 @@ const Login = ({login}) => {
       }));
     }
 
-    if (email && password) {
-      try {
-        const response = await axios.post(`http://localhost:8082/api/login`, {
-          email: state.email.trim(),
-          password: state.password.trim(),
-        });
-
-        localStorage.setItem("accessToken", response.data.accessToken);
-        localStorage.setItem("refreshToken", response.data.refreshToken);
-        navigate("/accueil");
-      } catch (error) {
-        setState((prevState) => ({
-          ...prevState,
-          email: "",
-          password: "",
-        }));
-        console.log(error);
-      }
+    if (state.email && state.password) {
+      navigate("/home");
     }
+
     console.log(state);
   };
 
@@ -124,9 +111,17 @@ const Login = ({login}) => {
           </div>
           <Button
             label="Sign in"
-            btnType="button"
-            handleSubmit={() => login()}
+            btnType="submit"
+            // handleSubmit={() => navigate("/home")}
             cssCustom={"mt-10"}
+            icon={<LoginIcon color={"#FFFFFF"} />}
+            iconLoading={<btnLoading />}
+          />
+          <Button
+            label="SSO Sign in"
+            btnType="button"
+            handleSubmit={() => navigate("/home")}
+            cssCustom={"mt-2"}
             icon={<LoginIcon color={"#FFFFFF"} />}
             iconLoading={<btnLoading />}
           />
