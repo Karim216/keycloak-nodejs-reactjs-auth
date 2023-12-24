@@ -1,5 +1,5 @@
 import Keycloak from 'keycloak-js';
-import axios from 'axios'; // Assurez-vous que axios est importé
+import axios from 'axios';
 
 let initOptions = {
   url: 'http://localhost:8080/',
@@ -20,10 +20,12 @@ const initKeycloak = async () => {
     if (!auth) {
       window.location.reload();
     } else {
-      console.info("Authenticated");
-      console.log('auth', auth);
-      console.log('Keycloak', keycloak);
-      console.log('Access Token', keycloak.token);
+      // console.info("Authenticated");
+      // console.log('auth', auth);
+      // console.log('Keycloak', keycloak);
+      // console.log('Access Token', keycloak.token);
+
+      localStorage.setItem("accessToken", keycloak.token)
 
       axios.defaults.headers.common['Authorization'] = `Bearer ${keycloak.token}`;
 

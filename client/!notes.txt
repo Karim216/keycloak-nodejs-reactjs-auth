@@ -40,7 +40,7 @@ Liens intéressants
 - myuser connect
   http://localhost:8080/realms/myrealm/account/#/
 
-- tuto1riel
+- Securing a React App with Keycloak | OpenID Connect
   https://www.youtube.com/watch?v=yUrfBrSkWLg&ab_channel=hexaDefence
 
 - Change Login Theme in Keycloak Docker Image

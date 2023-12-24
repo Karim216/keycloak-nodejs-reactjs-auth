@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState, lazy } from "react";
+import Loading from "../../../components/Loading/Loading.jsx";
 
 const Items = lazy(() => import("../../../components/Items/Items.jsx"));
 
 const Article = () => {
   const [posts, setPosts] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +31,7 @@ const Article = () => {
         });
 
         setPosts(postData);
+        setIsLoading(false)
       } catch (error) {
         console.log(error);
       }
@@ -36,6 +39,10 @@ const Article = () => {
 
     fetchData();
   }, []);
+
+  if(isLoading){
+    return <Loading />
+  }
 
   return (
     <Fragment>

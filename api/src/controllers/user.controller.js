@@ -1,6 +1,5 @@
 const User = require("../models/user.model.js");
 const { sendEmailWithValidation } = require("./sendmail.controller.js");
-const password = require("../auth/password.js");
 
 // Opérations CRUD
 
@@ -42,11 +41,9 @@ exports.createUser = async (req, res) => {
 
     res.status(201).json(newUser);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        error: "Erreur lors de la création de l'utilisateur: " + error.message,
-      });
+    res.status(500).json({
+      error: "Erreur lors de la création de l'utilisateur: " + error.message,
+    });
   }
 };
 
@@ -111,27 +108,27 @@ exports.deleteUserById = async (req, res) => {
 };
 
 exports.getUserInfo = async (req, res) => {
-//   const bearerHeader = req.headers["authorization"];
-  const email = req.query.email;
-  console.log(email)
-  if (typeof email !== "undefined") {
-        try {
-          let user = await User.findUserByEmail(email);
-          if (!user) {
-            res.status(404).send("User not found");
-            return;
-          }
+  // const bearerHeader = req.headers["authorization"];
 
-          res.json({
-              id: user.id,
-              email: user.email,
-              firstname: user.firstname,
-              lastname: user.lastname,
-          });
-        } catch (err) {
-          console.error(err);
-          res.status(500).send("Internal server error");
-        }
+  const email = req.auth.email;
+  if (typeof email !== "undefined") {
+    try {
+      let user = await User.findUserByEmail(email);
+      if (!user) {
+        res.status(404).send("User not found");
+        return;
+      }
+
+      res.json({
+        id: user.id,
+        email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal server error");
+    }
   } else {
     res.sendStatus(403);
   }

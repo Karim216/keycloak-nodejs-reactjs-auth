@@ -27,9 +27,13 @@ Liens intéressants
 - Learn NodeJS :
   https://nodejs.org/en/learn/getting-started/introduction-to-nodejs
 
-- Add Authentication to Existing Node.js/Express Apps with Auth0 | Express and Auth
-  https://www.youtube.com/watch?v=HTjfDUm1RsU&t=524s&ab_channel=OktaDev
-
+- PASSING KEYCLOAK BEARER TOKEN TO EXPRESS BACKEND?-NODE.JS 
+ 1) install express-jwt & jwks-rsa pour valider les tokens jwt
+ 2) recupérer les urls qu'on peut tester sur postman: 
+    - audience: Client ID (react-client)
+    - jwksUri: `https://VOTRE_DOMAINE_KEYCLOAK/auth/realms/VOTRE_REALM/protocol/openid-connect/certs` (http://localhost:8080/realms/myrealm/protocol/openid-connect/certs)
+    - issuer: `https://VOTRE_DOMAINE_KEYCLOAK/auth/realms/VOTRE_REALM` (http://localhost:8080/realms/myrealm)
+    - configurer le Middleware, créer le dossier middlewares>auth.keycloak.js et mettre le code dedans qu'on va exporter pour exploitation
 
     Utilisateur                   Frontend ReactJS                Auth0                     Backend API Node.js
       │                                 │                            │                              │
