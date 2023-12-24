@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import LoginIcon from "../../assets/icons/login";
 import { useNavigate } from "react-router-dom";
-import { useKeycloak } from "@react-keycloak/web";
-// import keycloak from "../../keycloak.jsx"
-import axios from "axios";
+import Keycloak from 'keycloak-js';
+
+let initOptions = {
+  url: 'http://localhost:8080/',
+  realm: 'myrealm',
+  clientId: 'react-client',
+};
+
+let keycloak = new Keycloak(initOptions);
+
+keycloak.init({
+  checkLoginIframe: true,
+  pkceMethod: 'S256',
+});
 
 const Login = () => {
+  console.log(!localStorage.getItem("auth"))
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
@@ -120,7 +132,7 @@ const Login = () => {
           <Button
             label="SSO Sign in"
             btnType="button"
-            handleSubmit={() => navigate("/home")}
+            handleSubmit={() => {keycloak.login({ redirectUri: "http://localhost:5173/home" })}}
             cssCustom={"mt-2"}
             icon={<LoginIcon color={"#FFFFFF"} />}
             iconLoading={<btnLoading />}

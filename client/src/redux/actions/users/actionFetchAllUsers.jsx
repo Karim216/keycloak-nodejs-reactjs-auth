@@ -4,6 +4,7 @@ import {
   FETCH_ALL_USERS_ERROR,
 } from "../../constants";
 import axios from "axios";
+import keycloak from "../../../keycloak";
 
 const fetchAllUsersLoading = () => {
   return {
@@ -26,7 +27,7 @@ const fetchAllUsersError = (error) => {
 };
 
 export const getAllUsers = () => {
-  // const apiUrl = process.env.REACT_APP_API_BASE_URL;
+  console.log(keycloak)
   const apiUrl = "http://localhost:8082"
   return async (dispatch) => {
     dispatch(fetchAllUsersLoading());

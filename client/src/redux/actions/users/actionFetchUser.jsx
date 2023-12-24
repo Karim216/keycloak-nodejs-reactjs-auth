@@ -4,7 +4,6 @@ import {
   FETCH_CURRENT_USER_ERROR,
 } from "../../constants";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 
 const fetchCurrentUserLoading = () => {
   return {
@@ -28,8 +27,6 @@ const fetchCurrentUserError = (error) => {
 
 export const getUser = () => {
   const apiUrl = "http://localhost:8082";
-  // const apiUrl = process.env.REACT_APP_API_BASE_URL;
-
   return async (dispatch) => {
     dispatch(fetchCurrentUserLoading());
     const config = {
@@ -42,7 +39,6 @@ export const getUser = () => {
       dispatch(fetchCurrentUserSuccess(response.data));
       return Promise.resolve(response.data);
     } catch (error) {
-      // console.log(error.response)
       dispatch(fetchCurrentUserError(error));
       return Promise.reject(error);
     }

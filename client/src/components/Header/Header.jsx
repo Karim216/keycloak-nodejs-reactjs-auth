@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserIcon from "../../assets/icons/user";
-import { useKeycloak } from "@react-keycloak/web";
-import keycloak from "../../keycloak.jsx";
-import { useSelector } from "react-redux";
 
-const Header = () => {
-  const { currentUser } = useSelector((state) => state);
-  
+const Header = ({ logout, currentUser }) => {
+
   return (
     <header className="border-b-2 border-gray-300 p-5">
       <nav className="container m-auto flex items-center justify-between">
@@ -26,21 +22,19 @@ const Header = () => {
           <li
             className="text-red-500 cursor-pointer"
             title="Disconnect"
-            onClick={() => {
-              keycloak.logout({ redirectUri: "http://localhost:5173/" });
-            }}
+            onClick={() => logout()}
           >
             Disconnect
           </li>
         </ul>
         <div
           className="text-blue-700 font-bold flex items-center gap-2"
-          title={currentUser.data.firstname + " " + currentUser.data.lastname}
+          title={currentUser.firstname + " " + currentUser.lastname}
         >
           <div>
             <UserIcon color="#1d4ed8" />
           </div>
-          {currentUser.data.firstname + " " + currentUser.data.lastname}
+          {currentUser.firstname + " " + currentUser.lastname}
         </div>
       </nav>
     </header>

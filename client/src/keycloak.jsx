@@ -1,5 +1,6 @@
 import Keycloak from 'keycloak-js';
 import axios from 'axios';
+import { getUser } from './redux/actions/users/actionFetchUser';
 
 let initOptions = {
   url: 'http://localhost:8080/',
@@ -28,10 +29,10 @@ const initKeycloak = async () => {
       localStorage.setItem("accessToken", keycloak.token)
 
       axios.defaults.headers.common['Authorization'] = `Bearer ${keycloak.token}`;
-
+      
       keycloak.onTokenExpired = () => {
         console.log('token expired');
-        // Vous pouvez également gérer ici le renouvellement du token si nécessaire
+        // On peut également gérer ici le renouvellement du token si nécessaire
       };
     }
   } catch (error) {
