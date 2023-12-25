@@ -37,7 +37,10 @@ Liens intéressants
 - Json post API :
   https://jsonplaceholder.typicode.com/
 
-- myuser connect
+- admin url connect
+  http://localhost:8080/admin
+  
+- myuser keycloak connect
   http://localhost:8080/realms/myrealm/account/#/
 
 - Securing a React App with Keycloak | OpenID Connect
@@ -45,6 +48,9 @@ Liens intéressants
 
 - Change Login Theme in Keycloak Docker Image
   https://medium.com/keycloak/change-login-theme-in-keycloak-docker-image-55b5fa5ceec4
+
+- Keycloak Social Logins - Integrate Google, Github and other platforms to your WebApp.
+  https://www.youtube.com/watch?v=RUXY5xqpq0A&ab_channel=DeKay
 
 
 Install des dépendances

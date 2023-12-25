@@ -9,21 +9,28 @@ const Header = lazy(() => import("../../components/Header/Header"));
 const Home = () => {
   const { currentUser } = useSelector((state) => state);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getUser())
-  }, [])
+    return () => {
+      dispatch(getUser());
+    };
+  }, []);
 
   const handleDisconnected = () => {
-      {keycloak.logout({ redirectUri: "http://localhost:5173" });}
-      localStorage.removeItem("accessToken")
-      localStorage.removeItem("auth")
-  }
+    {
+      keycloak.logout({ redirectUri: "http://localhost:5173" });
+    }
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("auth");
+  };
 
   return (
     <Fragment>
-      <Header currentUser={currentUser.data} logout = {() => handleDisconnected()} />
+      <Header
+        currentUser={currentUser.data}
+        logout={() => handleDisconnected()}
+      />
       <Outlet />
     </Fragment>
   );

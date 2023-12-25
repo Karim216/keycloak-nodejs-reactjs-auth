@@ -1,6 +1,5 @@
 import Keycloak from 'keycloak-js';
 import axios from 'axios';
-import { getUser } from './redux/actions/users/actionFetchUser';
 
 let initOptions = {
   url: 'http://localhost:8080/',
@@ -37,7 +36,7 @@ const initKeycloak = async () => {
     }
   } catch (error) {
     console.error("Authentication Failed", error);
-    // Gérer l'erreur d'authentification
+    // Gestion des erreurs d'authentification
   }
 }
 

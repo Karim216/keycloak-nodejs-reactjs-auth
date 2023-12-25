@@ -24,9 +24,15 @@ body > div {
   border-radius: 10px;
 }
 
-/* a {
-    color: #fff;
-} */
+body a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+body a:hover {
+  color: #285aab;
+}
 
 /* Change content to change the title of the page*/
 div#kc-header::after {
@@ -61,7 +67,8 @@ form#kc-form-login label ~ div {
   position: relative;
 }
 
-form#kc-form-login button.pf-c-button {
+form#kc-form-login button.pf-c-button,
+form#kc-register-form button.pf-c-button {
   position: absolute;
   right: 0;
   top: 23px;
@@ -99,6 +106,11 @@ form#kc-form-login > div {
   margin-bottom: 2.5rem;
 }
 
+form#kc-form-login > div:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*fields*/
 input[type="text"],
 input[type="password"] {
@@ -117,7 +129,12 @@ input[type="password"]:focus {
   border: 1px solid #111827;
 }
 
-form#kc-form-login span#input-error {
+form#kc-form-login span#input-error,
+form#kc-register-form span#input-error-firstname,
+form#kc-register-form span#input-error-lastname,
+form#kc-register-form span#input-error-email,
+form#kc-register-form span#input-error-password,
+form#kc-register-form span#input-error-password-confirm {
   color: #dc2626;
 }
 
@@ -252,4 +269,18 @@ a.zocial {
   border-radius: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+}
+
+/*REGISTER FORM*/
+form#kc-register-form div {
+  position: relative;
+}
+
+form#kc-register-form > div,
+form#kc-register-form > div:last-child > div:first-child {
+  margin-bottom: 2.5rem;
+}
+
+form#kc-register-form > div:last-child {
+  margin-bottom: 0;
 }

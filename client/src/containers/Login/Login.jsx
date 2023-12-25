@@ -18,7 +18,6 @@ keycloak.init({
 });
 
 const Login = () => {
-  console.log(!localStorage.getItem("auth"))
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
